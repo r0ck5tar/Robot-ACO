@@ -1,5 +1,5 @@
-#ifndef ROBOT_ETAT_H
-#define ROBOT_ETAT_H
+#ifndef ETAT_ROBOT_H
+#define ETAT_ROBOT_H
 
 #include <string>
 #include "Robot.h"
