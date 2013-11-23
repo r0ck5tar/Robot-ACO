@@ -9,9 +9,9 @@ void EtatRobotFige::repartir() {
     this->robot->changerEtat(etatPrecedent);
 }
 	
-EtatRobotFige& EtatRobotFige::instance() {
+EtatRobotFige* EtatRobotFige::instance() {
 	static EtatRobotFige etatRobotFige;
-	return etatRobotFige;
+	return &etatRobotFige;
 }
 
 void EtatRobotFige::setEtatPrecedent(EtatRobot *e) {

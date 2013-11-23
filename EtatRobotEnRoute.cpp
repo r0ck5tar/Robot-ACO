@@ -11,8 +11,3 @@ void EtatRobotEnRoute::figer() {
 	this->robot->changerEtat(EtatRobotFige::instance());
 	EtatRobotFige::instance()->setEtatPrecedent(e);
 }
-
-EtatRobotEnRoute& EtatRobotEnRoute::instance() {
-	static EtatRobotEnRoute etatRobotEnRoute;
-	return etatRobotEnRoute;
-}
