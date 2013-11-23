@@ -7,7 +7,6 @@ class EtatRobotFige : public EtatRobot {
     public:
 	static EtatRobotFige* instance();
 	void setEtatPrecedent(EtatRobot*);
-    void afficher();
     void repartir();
    
 	private:

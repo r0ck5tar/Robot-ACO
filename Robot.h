@@ -1,6 +1,7 @@
 #ifndef ROBOT_H
 #define ROBOT_H
 
+#include "AffichageRobot.h"
 #include "EtatRobot.h"
 #include "Position.h"
 #include "Obstacle.h"
@@ -10,11 +11,13 @@ using namespace std;
 
 class Robot {
 private:
+	AffichageRobot *affichage;
 	string direction;
 	Position *position;
 	Obstacle *obstacle;
 	Objet *objet;
 	EtatRobot *etat;
+	
 
 public:
 	Robot(string direction, EtatRobot *etat);	
@@ -28,10 +31,10 @@ public:
 	int evaluerObstacle();
 	void figer();
 	void repartir();
-	//void afficher();
 	
 	void changerEtat(EtatRobot *e);
 	EtatRobot* getEtat();
+	AffichageRobot* getAffichage();
 };
 
 #endif

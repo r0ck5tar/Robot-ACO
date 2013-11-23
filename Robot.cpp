@@ -8,14 +8,13 @@
 
 using namespace std;
 
-Robot::Robot(string d, EtatRobot *e) : direction(d), etat(e) {}
+Robot::Robot(string d, EtatRobot *e) : direction(d), etat(e){
+	affichage = new AffichageRobot(this);
+}
 
 void Robot::changerEtat(EtatRobot *etat){
 	this->etat = etat;
-}
-
-EtatRobot* Robot::getEtat(){
-	return this->etat;
+	this->affichage->notifier();
 }
 
 void Robot::avancer(int x, int y){
@@ -60,8 +59,12 @@ void Robot::repartir() {
 	this->etat->repartir();
 }
 
-/*void Robot::afficher(){
-	this->etat->afficher;
-}*/
+EtatRobot* Robot::getEtat(){
+	return this->etat;
+}
+
+AffichageRobot* Robot::getAffichage(){
+	return this->affichage;
+}
 
 

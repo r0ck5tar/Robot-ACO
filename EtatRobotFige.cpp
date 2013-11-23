@@ -1,10 +1,6 @@
 #include "EtatRobotFige.h"
 #include "Robot.h"
 
-void EtatRobotFige::afficher() {
-    //todo
-}
-
 void EtatRobotFige::repartir() {
     this->robot->changerEtat(etatPrecedent);
 }

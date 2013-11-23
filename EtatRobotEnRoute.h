@@ -5,7 +5,6 @@
 class EtatRobotEnRoute : public EtatRobot  {
 public:
 	void figer();
-	void afficher();
 	
 private:
 	EtatRobotEnRoute(){ }; //constructeur privé
