@@ -1,24 +1,31 @@
-#include <string>
-using namespace std;
-
 #include "Robot.h"
 #include "EtatRobot.h"
 #include "Position.h"
-#include "Objet.h"
 #include "Obstacle.h"
+#include "Objet.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 Robot::Robot(string d, EtatRobot *e) : direction(d), etat(e) {}
 
-void Robot::changerEtat(EtatRobot etat){
-	this->etat = &etat;
+void Robot::changerEtat(EtatRobot *etat){
+	this->etat = etat;
 }
 
 EtatRobot* Robot::getEtat(){
 	return this->etat;
 }
 
-void Robot::avancer(){
-	this->etat->avancer();
+void Robot::avancer(int x, int y){
+	try {
+		this->etat->avancer();
+		this->position->setx(this->position->getx()+x);
+		this->position->sety(this->position->gety()+y);
+	}catch(EtatRobot::ActionImpossible){
+		cout << "action impossible" << endl;
+	}
 }
 
 void Robot::tourner(string direction){

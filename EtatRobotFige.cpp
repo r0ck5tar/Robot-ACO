@@ -1,14 +1,19 @@
 #include "EtatRobotFige.h"
 #include "Robot.h"
 
-    EtatRobotFige::EtatRobotFige(EtatRobot *etatPrecedent)  { 
-	this->etatPrecedent = *etatPrecedent;
-    }
+void EtatRobotFige::afficher() {
+    //todo
+}
 
-    void EtatRobotFige::afficher() {
-        //todo
-    }
+void EtatRobotFige::repartir() {
+    this->robot->changerEtat(etatPrecedent);
+}
+	
+EtatRobotFige& EtatRobotFige::instance() {
+	static EtatRobotFige etatRobotFige;
+	return etatRobotFige;
+}
 
-    void EtatRobotFige::repartir() {
-        this->robot->changerEtat(etatPrecedent);
-    }
+void EtatRobotFige::setEtatPrecedent(EtatRobot *e) {
+	etatPrecedent = e;
+}

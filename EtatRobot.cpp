@@ -1,6 +1,4 @@
 #include "EtatRobot.h"
-#include <stdio.h>
-
 
 void EtatRobot :: avancer() {
     throw ActionImpossible();

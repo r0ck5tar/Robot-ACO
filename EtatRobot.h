@@ -2,7 +2,6 @@
 #define ETAT_ROBOT_H
 
 #include <string>
-#include "Robot.h"
 #include "Objet.h"
 #include "Obstacle.h"
 
@@ -12,6 +11,7 @@ using namespace std;
 class Robot;
 
 class EtatRobot{
+
     public:
     void afficher();
     void avancer();
