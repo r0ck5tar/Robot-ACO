@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -g
 
-all : main.o Robot.o EtatRobot.o EtatRobotFige.o Objet.o Obstacle.o Position.o
-	${CC} ${CFLAGS} Robot.o EtatRobot.o EtatRobotFige.o Objet.o Obstacle.o Position.o main.o -o SimRobot
+all : main.o Robot.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o Objet.o Obstacle.o Position.o
+	${CC} ${CFLAGS} Robot.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o Objet.o Obstacle.o Position.o main.o -o SimRobot
 	
 Robot.o : Robot.cpp Robot.h
 	${CC} ${CFLAGS} -c Robot.cpp
@@ -24,3 +24,6 @@ Position.o : Position.cpp Position.h
 	
 main.o : main.cpp
 	${CC} ${CFLAGS} -c main.cpp
+
+EtatRobotEnRoute.o : EtatRobotEnRoute.cpp  
+	${CC} ${CFLAGS} -c EtatRobotEnRoute.cpp

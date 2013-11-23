@@ -13,6 +13,10 @@ void Robot::changerEtat(EtatRobot etat){
 	this->etat = &etat;
 }
 
+EtatRobot* Robot::getEtat(){
+	return this->etat;
+}
+
 void Robot::avancer(){
 	this->etat->avancer();
 }

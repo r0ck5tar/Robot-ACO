@@ -18,7 +18,8 @@ private:
 public:
 	Robot(string direction,EtatRobot *etat);
 	void changerEtat(EtatRobot e);
-	
+	EtatRobot* getEtat();	
+
 	void avancer();
 	void tourner(string direction);
 
