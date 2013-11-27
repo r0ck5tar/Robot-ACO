@@ -11,23 +11,29 @@
 
 using namespace std;
 
-Robot::Robot(string d ) : direction(d), position(new Position(0, 0)) {
+Robot::Robot(string d ) : direction(d), position(new Position(0, 0)), etat(0) {
 	affichage = new AffichageRobot(this);
-	EtatRobotFige::instance();
-	EtatRobotAVide::instance();
+	EtatRobotFige::instance()->setRobot(this);
+	EtatRobotAVide::instance()->setRobot(this);
 	changerEtat("AVide");
 }
 
 void Robot::changerEtat(string nomEtat){
-	this->etat = etat->getEtat(nomEtat);
+    cout<<"\nMethode changerEtat() de la classe Robot - ";
+    if(etat!=0){cout<<"Changer de "<<etat-> getNomEtat()<<" a "<<nomEtat<<endl;}
+    else {cout<<"Initialisation a l'etat "<<nomEtat<<endl;}
+    EtatRobot *nouvelEtat = EtatRobot::getEtat(nomEtat);
+	this->etat = nouvelEtat;
 	this->affichage->notifier();
 }
 
 void Robot::avancer(int x, int y){
+    cout<<"\nMethode avancer(int, int) de la classe Robot : ";
 	try {
 		this->etat->avancer();
 		this->position->setx(x);
 		this->position->sety(y);
+		cout<<"Avance a "<<x<<" "<<y<<endl;
 	}catch(EtatRobot::ActionImpossible){
 		cout << "action impossible" << endl;
 	}
@@ -58,10 +64,16 @@ int Robot::evaluerObstacle(){
 }
 	
 void Robot::figer(){
-	this->etat->figer();
+    cout<<"\nMethode figer() de la classe Robot"<<endl;
+    try{
+        this->etat->figer();
+    } catch (EtatRobot::ActionImpossible){
+        cout << "action impossible" << endl;
+    }
 }
 
 void Robot::repartir() {
+    cout<<"\nMethode repartir() de la classe Robot"<<endl;
 	this->etat->repartir();
 }
 

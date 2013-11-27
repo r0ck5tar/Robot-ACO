@@ -26,6 +26,7 @@ class EtatRobot{
     virtual void figer();
     virtual void repartir();
 	
+	virtual void setRobot(Robot *r);
 	static EtatRobot* getEtat(string);
 	string getNomEtat();
     
@@ -36,7 +37,6 @@ class EtatRobot{
 	
 	private:
 	static map<string, EtatRobot*> etats;
-	static EtatRobot *initial;
 	string nomEtat;
 };
 

@@ -11,7 +11,7 @@ class EtatRobotFige : public EtatRobot {
    
 	private:
     EtatRobot *etatPrecedent;
-	EtatRobotFige() : EtatRobot("Fige"){ }; //constructeur privé
+	EtatRobotFige() : EtatRobot("Fige") { }; //constructeur privé
 	EtatRobotFige(const EtatRobotFige&); //surchage en privé pour éviter la construction de copie
 	void operator=(const EtatRobotFige&); //surchage en privé pour éviter la copie par affectation
 };

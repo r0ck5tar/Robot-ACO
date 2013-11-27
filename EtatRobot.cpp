@@ -2,8 +2,11 @@
 #include "EtatRobotAVide.h"
 #include "EtatRobotFige.h"
 
+#include <iostream>
+
+using namespace std;
+
 map<string, EtatRobot*> EtatRobot::etats = map<string, EtatRobot*>();
-EtatRobot* EtatRobot::initial = EtatRobotAVide::instance();
 
 EtatRobot::EtatRobot(string nomEtat) : nomEtat(nomEtat) {
 	etats[nomEtat] = this;
@@ -51,4 +54,8 @@ EtatRobot* EtatRobot::getEtat(string etat) {
 
 string EtatRobot::getNomEtat() {
     return nomEtat;   
+}
+
+void EtatRobot::setRobot(Robot *r) {
+	this->robot = r;
 }
