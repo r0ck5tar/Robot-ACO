@@ -74,7 +74,11 @@ void Robot::figer(){
 
 void Robot::repartir() {
     cout<<"\nMethode repartir() de la classe Robot"<<endl;
-	this->etat->repartir();
+    try{
+	   this->etat->repartir();
+	} catch (EtatRobot::ActionImpossible){
+        cout << "action impossible" << endl;
+    }
 }
 
 EtatRobot* Robot::getEtat(){
