@@ -6,8 +6,10 @@ class EtatRobotEnRoute : public EtatRobot  {
 public:
 	void figer();
 	
+protected:
+	EtatRobotEnRoute(string nomEtat) : EtatRobot(nomEtat) { };  //constructeur protégé pour permettre la dérivation.
+	
 private:
-	EtatRobotEnRoute(){ }; //constructeur privé
 	EtatRobotEnRoute(const EtatRobotEnRoute&); //surchage en privé pour éviter la construction de copie
 	void operator=(const EtatRobotEnRoute&); //surchage en privé pour éviter la copie par affectation
 };

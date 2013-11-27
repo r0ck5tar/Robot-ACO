@@ -2,7 +2,7 @@
 #include "Robot.h"
 
 void EtatRobotFige::repartir() {
-    this->robot->changerEtat(etatPrecedent);
+    this->robot->changerEtat(etatPrecedent->getNomEtat());
 }
 	
 EtatRobotFige* EtatRobotFige::instance() {

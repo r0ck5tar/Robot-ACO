@@ -1,7 +1,11 @@
 #include "AffichageRobot.h"
+#include "AffichageConsole.h"
+#include <iostream>
+using namespace std;
 
-
-AffichageRobot::AffichageRobot(Robot* robot): robot(robot){}
+AffichageRobot::AffichageRobot(Robot* robot): robot(robot){
+    attacherAfficheur(new AffichageConsole());
+}
 
 void AffichageRobot::attacherAfficheur(InterfaceAffichage* afficheur)
 {
@@ -15,7 +19,8 @@ void AffichageRobot::detacherAfficheur()
 
 void AffichageRobot::notifier()
 {
-	for(int i = 0, size = afficheurs.size(); i < size; ++i)
+	for(int i = 0, size = afficheurs.size(); i < size; ++i) {
 		afficheurs[i]->afficher(robot);
+    }
 }
 

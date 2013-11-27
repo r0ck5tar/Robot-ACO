@@ -20,7 +20,7 @@ private:
 	
 
 public:
-	Robot(string direction, EtatRobot *etat);	
+	Robot(string direction = "E");	
 
 	void avancer(int x, int y);
 	void tourner(string direction);
@@ -32,7 +32,7 @@ public:
 	void figer();
 	void repartir();
 	
-	void changerEtat(EtatRobot *e);
+	void changerEtat(string nomEtat);
 	EtatRobot* getEtat();
 	AffichageRobot* getAffichage();
 };

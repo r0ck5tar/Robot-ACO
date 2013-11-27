@@ -1,13 +1,19 @@
-#include "EtatRobot.h"
-#include "Robot.h"
-#include "Obstacle.h"
+#include "EtatRobotAVide.h"
 
-class EtatRobotAVide : protected EtatRobotEnRoute {
-public:
-	void tourner(string direction);
-	void avancer();
-	void rencontrerObstacle(Obstacle o);
-};
+EtatRobotAVide* EtatRobotAVide::instance() {
+	static EtatRobotAVide etatRobotAVide;
+	return &etatRobotAVide;
+}
 
+void EtatRobotAVide::tourner() {
+	
+}
 
+void EtatRobotAVide::avancer() {
+	
+}
+
+void EtatRobotAVide::rencontrerObstacle() {
+
+}
 

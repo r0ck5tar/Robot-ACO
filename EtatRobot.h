@@ -2,6 +2,7 @@
 #define ETAT_ROBOT_H
 
 #include <string>
+#include <map>
 #include "Objet.h"
 #include "Obstacle.h"
 
@@ -13,21 +14,30 @@ class Robot;
 class EtatRobot{
 
     public:
-    void afficher();
-    void avancer();
-    void tourner(string direction);
-    void saisir(Objet o);
-    void poser();
-    int peser();
-    void rencontrerObstacle(Obstacle o);
-    int evaluerObstacle();
-    void figer();
-    void repartir();
+	EtatRobot() {}
+	EtatRobot(string nomEtat);
+    virtual void avancer();
+    virtual void tourner(); 
+    virtual void saisir();
+    virtual void poser();
+    virtual int peser();
+    virtual void rencontrerObstacle();
+    virtual int evaluerObstacle();
+    virtual void figer();
+    virtual void repartir();
+	
+	static EtatRobot* getEtat(string);
+	string getNomEtat();
     
     class ActionImpossible{};
     
     protected:
     Robot* robot;
+	
+	private:
+	static map<string, EtatRobot*> etats;
+	static EtatRobot *initial;
+	string nomEtat;
 };
 
 #endif

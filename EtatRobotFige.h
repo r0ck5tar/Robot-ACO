@@ -6,12 +6,12 @@
 class EtatRobotFige : public EtatRobot {
     public:
 	static EtatRobotFige* instance();
-	void setEtatPrecedent(EtatRobot*);
-    void repartir();
+	virtual void setEtatPrecedent(EtatRobot*);
+    virtual void repartir();
    
 	private:
     EtatRobot *etatPrecedent;
-	EtatRobotFige(){ }; //constructeur privé
+	EtatRobotFige() : EtatRobot("Fige"){ }; //constructeur privé
 	EtatRobotFige(const EtatRobotFige&); //surchage en privé pour éviter la construction de copie
 	void operator=(const EtatRobotFige&); //surchage en privé pour éviter la copie par affectation
 };
