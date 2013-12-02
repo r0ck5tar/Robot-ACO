@@ -2,6 +2,9 @@
 #include "EtatRobot.h"
 #include "EtatRobotFige.h"
 #include "EtatRobotAVide.h"
+#include "EtatRobotAVideFaceObstacle.h"
+#include "EtatRobotEnCharge.h"
+#include "EtatRobotEnChargeFaceObstacle.h"
 #include "Position.h"
 #include "Obstacle.h"
 #include "Objet.h"
@@ -11,18 +14,18 @@
 
 using namespace std;
 
-Robot::Robot(string d ) : direction(d), position(new Position(0, 0)), etat(0) {
+Robot::Robot(string d ) : direction(d), position(new Position(0, 0)),  objet(0), etat(0) {
 	affichage = new AffichageRobot(this);
 	EtatRobotFige::instance()->setRobot(this);
 	EtatRobotAVide::instance()->setRobot(this);
+	EtatRobotAVideFaceObstacle::instance()->setRobot(this);
+	EtatRobotEnCharge::instance()->setRobot(this);
+	EtatRobotEnChargeFaceObstacle::instance()->setRobot(this);
 	changerEtat("AVide");
 }
 
 void Robot::changerEtat(string nomEtat){
-    cout<<"\nMethode changerEtat() de la classe Robot - ";
-    if(etat!=0){cout<<"Changer de "<<etat-> getNomEtat()<<" a "<<nomEtat<<endl;}
-    else {cout<<"Initialisation a l'etat "<<nomEtat<<endl;}
-    EtatRobot *nouvelEtat = EtatRobot::getEtat(nomEtat);
+	EtatRobot *nouvelEtat = EtatRobot::getEtat(nomEtat);
 	this->etat = nouvelEtat;
 	this->affichage->notifier();
 }
@@ -39,12 +42,25 @@ void Robot::avancer(int x, int y){
 	}
 }
 
-void Robot::tourner(string direction){
-	this->etat->tourner();
+void Robot::tourner(string d){
+	  cout<<"\nMethode tourner(string) de la classe Robot : ";
+	try {
+		cout<<"Tourne vers "<<d<<endl;
+		this->etat->tourner();
+		this->direction = d; 
+	}catch(EtatRobot::ActionImpossible){
+		cout << "action impossible" << endl;
+	}
 }
 
-void Robot::saisir(Objet o){
-	this->etat->saisir();
+void Robot::saisir(Objet *o){
+	  cout<<"\nMethode saisir(Objet) de la classe Robot : ";
+	try {
+		this->etat->saisir();
+		this->objet = o;
+	}catch(EtatRobot::ActionImpossible){
+		cout << "action impossible" << endl;
+	}
 }
 
 void Robot::poser(){
@@ -52,7 +68,8 @@ void Robot::poser(){
 }
 
 int Robot::peser(){
-	return this->etat->peser();
+	this->etat->peser();
+	return 0;
 }
 	
 void Robot::rencontrerObstacle(Obstacle o){
@@ -60,7 +77,8 @@ void Robot::rencontrerObstacle(Obstacle o){
 }
 
 int Robot::evaluerObstacle(){
-	return this->etat->evaluerObstacle();
+	this->etat->evaluerObstacle();
+	return 0;
 }
 	
 void Robot::figer(){
@@ -83,6 +101,14 @@ void Robot::repartir() {
 
 EtatRobot* Robot::getEtat(){
 	return this->etat;
+}
+
+Objet* Robot::getObjet(){
+	return this->objet;
+}
+
+string Robot::getDirection(){
+	return this->direction;
 }
 
 AffichageRobot* Robot::getAffichage(){

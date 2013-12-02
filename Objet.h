@@ -9,6 +9,7 @@ private:
 public:
 	Objet(int p);
 	int getPoids();
+	void setPoids(int p);
 };
 
 #endif

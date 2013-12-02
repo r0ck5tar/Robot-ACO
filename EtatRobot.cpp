@@ -28,7 +28,7 @@ void EtatRobot:: poser() {
     throw ActionImpossible();   
 }
 
-int EtatRobot :: peser() {
+void EtatRobot :: peser() {
     throw ActionImpossible();   
 }
 
@@ -36,7 +36,7 @@ void EtatRobot :: rencontrerObstacle() {
     throw ActionImpossible();   
 }
 
-int EtatRobot :: evaluerObstacle() {
+void EtatRobot :: evaluerObstacle() {
     throw ActionImpossible();
 }
 

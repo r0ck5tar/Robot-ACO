@@ -6,7 +6,7 @@
 class EtatRobotAVide : public EtatRobotEnRoute {
    public:
 	static EtatRobotAVide* instance();
-    void tourner();
+   	void tourner();
 	void avancer();
 	void rencontrerObstacle();
    

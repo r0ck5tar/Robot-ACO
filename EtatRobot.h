@@ -20,9 +20,9 @@ class EtatRobot{
     virtual void tourner(); 
     virtual void saisir();
     virtual void poser();
-    virtual int peser();
+    virtual void peser();
     virtual void rencontrerObstacle();
-    virtual int evaluerObstacle();
+    virtual void evaluerObstacle();
     virtual void figer();
     virtual void repartir();
 	

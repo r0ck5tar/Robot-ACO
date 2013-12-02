@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -g
 
-all : main.o Robot.o AffichageRobot.o AffichageConsole.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o Objet.o Obstacle.o Position.o
-	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o Objet.o Obstacle.o Position.o main.o -o SimRobot
+all : Robot.o AffichageRobot.o AffichageConsole.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o 
+	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o -o SimRobot
 	
 Robot.o : Robot.cpp 
 	${CC} ${CFLAGS} -c Robot.cpp
@@ -24,6 +24,15 @@ EtatRobotEnRoute.o : EtatRobotEnRoute.cpp
 	
 EtatRobotAVide.o : EtatRobotAVide.cpp 
 	${CC} ${CFLAGS} -c  EtatRobotAVide.cpp
+
+EtatRobotAVideFaceObstacle.o : EtatRobotAVideFaceObstacle.cpp 
+	${CC} ${CFLAGS} -c  EtatRobotAVideFaceObstacle.cpp
+
+EtatRobotEnCharge.o : EtatRobotEnCharge.cpp 
+	${CC} ${CFLAGS} -c  EtatRobotEnCharge.cpp
+
+EtatRobotEnChargeFaceObstacle.o : EtatRobotEnChargeFaceObstacle.cpp 
+	${CC} ${CFLAGS} -c  EtatRobotEnChargeFaceObstacle.cpp
 
 Objet.o : Objet.cpp 
 	${CC} ${CFLAGS} -c Objet.cpp

@@ -24,7 +24,7 @@ public:
 
 	void avancer(int x, int y);
 	void tourner(string direction);
-	void saisir(Objet o);
+	void saisir(Objet *o);
 	void poser();
 	int peser();
 	void rencontrerObstacle(Obstacle o);
@@ -34,6 +34,8 @@ public:
 	
 	void changerEtat(string nomEtat);
 	EtatRobot* getEtat();
+	Objet* getObjet();
+	string getDirection();
 	AffichageRobot* getAffichage();
 };
 
