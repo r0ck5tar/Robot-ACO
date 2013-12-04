@@ -1,13 +1,8 @@
 CC = g++
 CFLAGS = -Wall -g
 
-<<<<<<< HEAD
-all : Robot.o AffichageRobot.o AffichageConsole.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o 
-	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o -o SimRobot
-=======
-all : main.o Robot.o AffichageRobot.o AffichageConsole.o Commande.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o Objet.o Obstacle.o Position.o
-	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o Commande.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o Objet.o Obstacle.o Position.o main.o -o SimRobot
->>>>>>> classes commandes
+all : Robot.o AffichageRobot.o AffichageConsole.o Commande.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o 
+	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o Commande.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o -o SimRobot
 	
 Robot.o : Robot.cpp 
 	${CC} ${CFLAGS} -c Robot.cpp
