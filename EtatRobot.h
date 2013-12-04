@@ -3,9 +3,6 @@
 
 #include <string>
 #include <map>
-#include "Objet.h"
-#include "Obstacle.h"
-
 
 using namespace std;
 
