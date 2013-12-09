@@ -99,6 +99,14 @@ void Robot::repartir() {
     }
 }
 
+int Robot::getx(){
+	return this->position->getx();
+}
+
+int Robot::gety(){
+	return this->position->gety();
+}
+
 EtatRobot* Robot::getEtat(){
 	return this->etat;
 }
