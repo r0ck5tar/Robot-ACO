@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -g
 
-all : Robot.o AffichageRobot.o AffichageConsole.o Commande.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o 
-	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o Commande.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o -o SimRobot
+all : Robot.o AffichageRobot.o AffichageConsole.o Commande.o CommandeAvancer.o CommandePeser.o CommandePoser.o CommandeTourner.o CommandeSaisir.o CommandeEvaluerObst.o CommandeRepartir.o CommandeFiger.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o 
+	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o Commande.o  CommandeAvancer.o CommandePeser.o CommandePoser.o CommandeTourner.o CommandeSaisir.o CommandeEvaluerObst.o CommandeRepartir.o CommandeFiger.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o -o SimRobot
 	
 Robot.o : Robot.cpp 
 	${CC} ${CFLAGS} -c Robot.cpp
@@ -15,6 +15,31 @@ AffichageConsole.o : AffichageConsole.cpp
 	
 Commande.o : Commande.cpp
 	${CC} ${CFLAGS} -c Commande.cpp
+
+CommandeAvancer.o : CommandeAvancer.cpp
+	${CC} ${CFLAGS} -c CommandeAvancer.cpp
+
+CommandePeser.o : CommandePeser.cpp
+	${CC} ${CFLAGS} -c CommandePeser.cpp
+
+CommandePoser.o : CommandePoser.cpp
+	${CC} ${CFLAGS} -c CommandePoser.cpp
+
+CommandeTourner.o : CommandeTourner.cpp
+	${CC} ${CFLAGS} -c CommandeTourner.cpp
+
+CommandeSaisir.o : CommandeSaisir.cpp
+	${CC} ${CFLAGS} -c CommandeSaisir.cpp
+
+CommandeEvaluerObst.o : CommandeEvaluerObst.cpp
+	${CC} ${CFLAGS} -c CommandeEvaluerObst.cpp
+
+CommandeRepartir.o : CommandeRepartir.cpp
+	${CC} ${CFLAGS} -c CommandeRepartir.cpp
+
+
+CommandeFiger.o : CommandeFiger.cpp
+	${CC} ${CFLAGS} -c CommandeFiger.cpp
 
 EtatRobot.o : EtatRobot.cpp 
 	${CC} ${CFLAGS} -c EtatRobot.cpp
