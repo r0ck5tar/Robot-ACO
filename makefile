@@ -1,6 +1,7 @@
 CC = g++
 CFLAGS = -Wall -g
 
+<<<<<<< HEAD
 Etats = $(addprefix obj/, EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o)
 
 Output = -o $@
@@ -11,6 +12,10 @@ all : makedir $(addprefix obj/, Robot.o AffichageRobot.o AffichageConsole.o Comm
 makedir : 
 	$(shell mkdir -p obj)
 	
+=======
+all : Robot.o AffichageRobot.o AffichageConsole.o Commande.o CommandeAvancer.o CommandePeser.o CommandePoser.o CommandeTourner.o CommandeSaisir.o CommandeEvaluerObst.o CommandeRepartir.o CommandeFiger.o EtatRobot.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o 
+	${CC} ${CFLAGS} Robot.o AffichageRobot.o AffichageConsole.o Commande.o  CommandeAvancer.o CommandePeser.o CommandePoser.o CommandeTourner.o CommandeSaisir.o CommandeEvaluerObst.o CommandeRepartir.o CommandeFiger.o EtatRobotFige.o EtatRobotEnRoute.o EtatRobot.o EtatRobotAVide.o EtatRobotAVideFaceObstacle.o EtatRobotEnCharge.o EtatRobotEnChargeFaceObstacle.o Objet.o Obstacle.o Position.o main.o -o SimRobot
+>>>>>>> 0f89d2d7248196fc7b0e555b691bf7a9492b503c
 	
 obj/Robot.o : Robot.cpp 
 	${CC} ${CFLAGS} -c Robot.cpp $(Output)
@@ -24,8 +29,38 @@ obj/AffichageConsole.o : AffichageConsole.cpp
 obj/Commande.o : Commande.cpp
 	${CC} ${CFLAGS} -c Commande.cpp $(Output) 
 
+<<<<<<< HEAD
 obj/EtatRobot.o : Etats/EtatRobot.cpp
 	${CC} ${CFLAGS} -c Etats/EtatRobot.cpp $(Output)
+=======
+CommandeAvancer.o : CommandeAvancer.cpp
+	${CC} ${CFLAGS} -c CommandeAvancer.cpp
+
+CommandePeser.o : CommandePeser.cpp
+	${CC} ${CFLAGS} -c CommandePeser.cpp
+
+CommandePoser.o : CommandePoser.cpp
+	${CC} ${CFLAGS} -c CommandePoser.cpp
+
+CommandeTourner.o : CommandeTourner.cpp
+	${CC} ${CFLAGS} -c CommandeTourner.cpp
+
+CommandeSaisir.o : CommandeSaisir.cpp
+	${CC} ${CFLAGS} -c CommandeSaisir.cpp
+
+CommandeEvaluerObst.o : CommandeEvaluerObst.cpp
+	${CC} ${CFLAGS} -c CommandeEvaluerObst.cpp
+
+CommandeRepartir.o : CommandeRepartir.cpp
+	${CC} ${CFLAGS} -c CommandeRepartir.cpp
+
+
+CommandeFiger.o : CommandeFiger.cpp
+	${CC} ${CFLAGS} -c CommandeFiger.cpp
+
+EtatRobot.o : EtatRobot.cpp 
+	${CC} ${CFLAGS} -c EtatRobot.cpp
+>>>>>>> 0f89d2d7248196fc7b0e555b691bf7a9492b503c
 	
 obj/EtatRobotFige.o : Etats/EtatRobotFige.cpp  
 	${CC} ${CFLAGS} -c Etats/EtatRobotFige.cpp $(Output)
