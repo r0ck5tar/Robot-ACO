@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-#include "Robot.h"
+#include "../Robot.h"
 #include "Commande.h"
 
 class CommandeRobot : public Commande {

@@ -5,7 +5,7 @@
 using namespace std;
 
 #include "CommandeRobot.h"
-#include "Objet.h"
+#include "../Objet.h"
 
 class CommandeSaisir : protected CommandeRobot {
 private:
