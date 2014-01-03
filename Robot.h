@@ -2,7 +2,7 @@
 #define ROBOT_H
 
 #include "AffichageRobot.h"
-#include "EtatRobot.h"
+#include "Etats/EtatRobot.h"
 #include "Position.h"
 #include "Obstacle.h"
 #include "Objet.h"

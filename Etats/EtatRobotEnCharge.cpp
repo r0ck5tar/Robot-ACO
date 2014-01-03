@@ -1,6 +1,6 @@
 #include "EtatRobotEnCharge.h"
 #include "EtatRobotEnChargeFaceObstacle.h"
-#include "Robot.h"
+#include "../Robot.h"
 
 EtatRobotEnCharge* EtatRobotEnCharge::instance() {
 	static EtatRobotEnCharge etatRobotEnCharge;

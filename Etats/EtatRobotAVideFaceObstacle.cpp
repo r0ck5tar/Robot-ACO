@@ -1,6 +1,6 @@
 #include "EtatRobotAVideFaceObstacle.h"
 #include "EtatRobotAVide.h"
-#include "Robot.h"
+#include "../Robot.h"
 #include "EtatRobotEnChargeFaceObstacle.h"
 
 EtatRobotAVideFaceObstacle* EtatRobotAVideFaceObstacle::instance() {
