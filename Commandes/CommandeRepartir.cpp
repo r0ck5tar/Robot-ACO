@@ -1,17 +1,28 @@
-#include <string>
+#include "CommandeRepartir.h"
+#include <iostream>
+
 using namespace std;
 
-#include "CommandeRepartir.h"
+CommandeRepartir CommandeRepartir::cmd("repartir");
+
+CommandeRepartir::CommandeRepartir(string nomCommande) : CommandeRobot(nomCommande) {
+}
+
+void CommandeRepartir::execute() {
+	
+	robot->repartir();
+}
 
 bool CommandeRepartir::reversible() {
 	return true;
 }
 
 void CommandeRepartir::desexecute() {
-	this->robot->figer();
+	robot->figer();
 }
 
-void CommandeRepartir::execute() {
-	this->robot->repartir();
+CommandeRepartir * CommandeRepartir::constructeurVirtuel(Client *client) {
+	CommandeRepartir *c = new CommandeRepartir();
+	
+	return c;
 }
-

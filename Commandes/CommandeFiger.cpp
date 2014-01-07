@@ -1,17 +1,28 @@
-#include <string>
+#include "CommandeFiger.h"
+#include <iostream>
+
 using namespace std;
 
-#include "CommandeFiger.h"
+CommandeFiger CommandeFiger::cmd("figer");
+
+CommandeFiger::CommandeFiger(string nomCommande) : CommandeRobot(nomCommande) {
+}
+
+void CommandeFiger::execute() {
+	
+	robot->figer();
+}
 
 bool CommandeFiger::reversible() {
 	return true;
 }
 
 void CommandeFiger::desexecute() {
-	this->robot->repartir();
+	robot->repartir();
 }
 
-void CommandeFiger::execute() {
-	this->robot->figer();
+CommandeFiger * CommandeFiger::constructeurVirtuel(Client *client) {
+	CommandeFiger *c = new CommandeFiger();
+	
+	return c;
 }
-

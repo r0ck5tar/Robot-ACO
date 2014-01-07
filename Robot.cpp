@@ -31,25 +31,27 @@ void Robot::changerEtat(string nomEtat){
 }
 
 void Robot::avancer(int x, int y){
-    cout<<"\nMethode avancer(int, int) de la classe Robot : ";
+    
 	try {
 		this->etat->avancer();
 		this->position->setx(x);
 		this->position->sety(y);
-		cout<<"Avance a "<<x<<" "<<y<<endl;
+		this->affichage->notifier();
 	}catch(EtatRobot::ActionImpossible){
 		cout << "action impossible" << endl;
+		throw;
 	}
 }
 
 void Robot::tourner(string d){
-	  cout<<"\nMethode tourner(string) de la classe Robot : ";
+
 	try {
-		cout<<"Tourne vers "<<d<<endl;
 		this->etat->tourner();
 		this->direction = d; 
+		this->affichage->notifier();
 	}catch(EtatRobot::ActionImpossible){
 		cout << "action impossible" << endl;
+		throw;
 	}
 }
 
@@ -58,8 +60,10 @@ void Robot::saisir(Objet *o){
 	try {
 		this->etat->saisir();
 		this->objet = o;
+		this->affichage->notifier();
 	}catch(EtatRobot::ActionImpossible){
 		cout << "action impossible" << endl;
+		throw;
 	}
 }
 
@@ -82,28 +86,28 @@ int Robot::evaluerObstacle(){
 }
 	
 void Robot::figer(){
-    cout<<"\nMethode figer() de la classe Robot"<<endl;
     try{
         this->etat->figer();
     } catch (EtatRobot::ActionImpossible){
         cout << "action impossible" << endl;
+        throw;
     }
 }
 
 void Robot::repartir() {
-    cout<<"\nMethode repartir() de la classe Robot"<<endl;
     try{
 	   this->etat->repartir();
 	} catch (EtatRobot::ActionImpossible){
         cout << "action impossible" << endl;
+        throw;
     }
 }
 
-int Robot::getx(){
+int Robot::getX(){
 	return this->position->getx();
 }
 
-int Robot::gety(){
+int Robot::getY(){
 	return this->position->gety();
 }
 

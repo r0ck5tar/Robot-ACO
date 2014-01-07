@@ -1,20 +1,26 @@
-#ifndef COMMANDETOURNER_H
-#define COMMANDETOURNER_H
-
-#include <string>
-using namespace std;
+#ifndef COMMANDE_TOURNER_H
+#define COMMANDE_TOURNER_H
 
 #include "CommandeRobot.h"
+#include "../Robot.h"
+#include "../Client.h"
+
 
 class CommandeTourner : protected CommandeRobot {
-private:
-	string oldDirection;
-	string direction;
-
 public:
+	virtual void execute();
 	virtual bool reversible();
 	virtual void desexecute();
-	virtual void execute();
+	
+	CommandeTourner() : CommandeRobot() {};
+	
+protected:
+	virtual CommandeTourner * constructeurVirtuel(Client *client);
+	
+private:
+	CommandeTourner(string nomCommande);
+	static CommandeTourner cmd;
+	string direction, directionPrecedent;
 };
 
 #endif

@@ -1,19 +1,32 @@
-#include <string>
-using namespace std;
-
 #include "CommandeAvancer.h"
+
+CommandeAvancer CommandeAvancer::cmd("avancer");
+
+CommandeAvancer::CommandeAvancer(string nomCommande) : CommandeRobot(nomCommande) {
+}
+
+void CommandeAvancer::execute() {
+	
+	this->xPrecedent = this->robot->getX();
+	this->yPrecedent = this->robot->getY();
+	
+	robot->avancer(x, y);
+}
 
 bool CommandeAvancer::reversible() {
 	return true;
 }
 
 void CommandeAvancer::desexecute() {
-	this->robot->avancer(this->x0, this->y0);
+	robot->avancer(this->xPrecedent, this->yPrecedent);
 }
 
-void CommandeAvancer::execute() {
-	this->x0 = this->robot->getx();
-	this->y0 = this->robot->gety();
-	this->robot->avancer(this->x, this->y);
+CommandeAvancer * CommandeAvancer::constructeurVirtuel(Client *client) {
+	
+	CommandeAvancer *c = new CommandeAvancer();
+	
+	c->x = client->lireX();
+	c->y = client->lireY();
+	
+	return c;
 }
-

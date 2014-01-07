@@ -33,8 +33,8 @@ public:
 	void repartir();
 	
 	void changerEtat(string nomEtat);
-	int getx();
-	int gety();
+	int getX();
+	int getY();
 	EtatRobot* getEtat();
 	Objet* getObjet();
 	string getDirection();

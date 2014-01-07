@@ -1,22 +1,21 @@
-#ifndef _COMMANDEROBOT_H
-#define _COMMANDEROBOT_H
+#ifndef COMMANDE_ROBOT_H
+#define COMMANDE_ROBOT_H
 
-#include <string>
+#include "Commande.h"
+#include "../Robot.h"
+#include <map> 
+
 using namespace std;
 
-#include "../Robot.h"
-#include "Commande.h"
-
 class CommandeRobot : public Commande {
+public:	
+	CommandeRobot() : Commande() {};
+	
+	virtual void setRobot(Robot *r);
+	
 protected:
+	CommandeRobot(string nomCommande) : Commande(nomCommande) {};
 	Robot *robot;
-
-public:
-	CommandeRobot(string t);
-
-	virtual void execute() = 0;
-	virtual void desexecute() = 0;
-	virtual bool reversible() = 0;
 };
 
 #endif
